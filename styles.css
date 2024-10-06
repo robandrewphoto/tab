@@ -85,7 +85,7 @@ button:active {
     outline: none;
     cursor: text;
     white-space: pre;
-    letter-spacing: 30px;
+    letter-spacing: 20px; /* Adjusted for better spacing */
 }
 
 .annotation {
