@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Check for previous character to see if it's also a digit
                     if (/^\d$/.test(currentText[cursorIndex - 1])) {
                         line.textContent = currentText.slice(0, cursorIndex) + event.key + currentText.slice(cursorIndex);
-                        moveToPositionWithManualSpaces(line, cursorIndex + 1);
+                        moveCursorToPosition(line, cursorIndex + 1);
                     } else {
                         line.textContent = currentText.slice(0, cursorIndex) + event.key + ' ' + currentText.slice(cursorIndex);
-                        moveToPositionWithManualSpaces(line, cursorIndex + 2);
+                        moveCursorToPosition(line, cursorIndex + 2);
                     }
                     alignNotesVertically();
                     event.preventDefault();
@@ -32,26 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
             line.addEventListener('click', function(event) {
                 const clickedX = event.clientX;
                 const lineRect = line.getBoundingClientRect();
-                const charWidth = 20; // Adjusted for better spacing
+                const charWidth = 20; // Assumed character width, adjust as needed
                 const clickPosition = Math.floor((clickedX - lineRect.left) / charWidth);
-                moveToPositionWithManualSpaces(line, clickPosition);
+                moveCursorToPosition(line, clickPosition);
             });
         });
     }
 
-    function moveToPositionWithManualSpaces(element, position) {
-        const currentLength = element.textContent.length;
-        for (let i = currentLength; i < position; i++) {
-            element.textContent += ' ';
-        }
-        placeCursorAtPosition(element, position);
-    }
-
-    function placeCursorAtPosition(element, position) {
+    function moveCursorToPosition(element, position) {
         const range = document.createRange();
         const sel = window.getSelection();
-        const textLength = element.textContent.length;
-        range.setStart(element.childNodes[0] || element, Math.min(position, textLength));
+        const textNode = element.firstChild;
+        const textLength = textNode ? textNode.length : 0;
+
+        // Add spaces if the click position is beyond current text length
+        for (let i = textLength; i < position; i++) {
+            element.textContent += ' ';
+        }
+
+        range.setStart(textNode || element, Math.min(position, element.textContent.length));
         range.collapse(true);
         sel.removeAllRanges();
         sel.addRange(range);
