@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (/^\d$/.test(event.key)) {
                     const currentText = line.textContent;
-                    // Check for previous character to see if it's also a digit
                     if (/^\d$/.test(currentText[cursorIndex - 1])) {
                         line.textContent = currentText.slice(0, cursorIndex) + event.key + currentText.slice(cursorIndex);
                         moveCursorToPosition(line, cursorIndex + 1);
