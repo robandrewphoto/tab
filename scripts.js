@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tabContainer = document.querySelector('.tab-container');
-    const maxLineLength = 50; // Adjust this value based on your line width
 
     function enableEditing() {
         const lines = document.querySelectorAll('.editable');
@@ -13,19 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (/^\d$/.test(event.key)) {
                     const currentText = line.textContent;
-                    if (currentText.length >= maxLineLength) {
-                        event.preventDefault();
-                        return;
-                    }
                     // Check for previous character to see if it's also a digit
                     if (/^\d$/.test(currentText[cursorIndex - 1])) {
                         line.textContent = currentText.slice(0, cursorIndex) + event.key + currentText.slice(cursorIndex);
-                        cursorIndex += 1;
+                        moveToPositionWithManualSpaces(line, cursorIndex + 1);
                     } else {
                         line.textContent = currentText.slice(0, cursorIndex) + event.key + ' ' + currentText.slice(cursorIndex);
-                        cursorIndex += 2;
+                        moveToPositionWithManualSpaces(line, cursorIndex + 2);
                     }
-                    moveToPositionWithManualSpaces(line, cursorIndex);
                     alignNotesVertically();
                     event.preventDefault();
                 } else if (!/[\w\s!@#$%^&*()\-+=<>?,./]/.test(event.key) &&
