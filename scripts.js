@@ -20,11 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Check for previous character to see if it's also a digit
                     if (/^\d$/.test(currentText[cursorIndex - 1])) {
                         line.textContent = currentText.slice(0, cursorIndex) + event.key + currentText.slice(cursorIndex);
-                        moveToPositionWithManualSpaces(line, cursorIndex + 1);
+                        cursorIndex += 1;
                     } else {
                         line.textContent = currentText.slice(0, cursorIndex) + event.key + ' ' + currentText.slice(cursorIndex);
-                        moveToPositionWithManualSpaces(line, cursorIndex + 2);
+                        cursorIndex += 2;
                     }
+                    moveToPositionWithManualSpaces(line, cursorIndex);
                     alignNotesVertically();
                     event.preventDefault();
                 } else if (!/[\w\s!@#$%^&*()\-+=<>?,./]/.test(event.key) &&
