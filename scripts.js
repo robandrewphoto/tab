@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             line.addEventListener('click', function(event) {
                 const clickedX = event.clientX;
                 const lineRect = line.getBoundingClientRect();
-                const charWidth = 20; // Assumed character width, adjust as needed
+                const charWidth = 8; // Adjusted character width
                 const clickPosition = Math.floor((clickedX - lineRect.left) / charWidth);
                 moveCursorToPosition(line, clickPosition);
             });
