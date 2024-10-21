@@ -1,12 +1,4 @@
-
-        let cursorIndex = 0;
-        let selectedNotes = [];
-
-        function enableEditing() {
-            const lines = document.querySelectorAll('.editable');
-
-            lines.forEach((line, index) => {
-                line.classList.add('unselectable'); // make lines unselectable
+lassList.add('unselectable'); // make lines unselectable
 
                 line.addEventListener('keydown', function(event) {
                     const sel = window.getSelection();
