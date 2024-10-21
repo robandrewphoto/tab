@@ -1,115 +1,115 @@
-body {
-    font-family: 'Courier New', Courier, monospace;
-}
+       body {
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-.toolbar {
-    position: fixed;
-    left: 20px;
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 999;
-    background-color: black;
-    padding: 20px;
-    border-radius: 15px;
-}
+        .toolbar {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+            background-color: black;
+            padding: 20px;
+            border-radius: 15px;
+        }
 
-button {
-    width: 60px;
-    height: 60px;
-    background-color: #A0AEC0;
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
+        button {
+            width: 60px;
+            height: 60px;
+            background-color: #A0AEC0;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-button:hover {
-    background-color: #718096;
-}
+        button:hover {
+            background-color: #718096;
+        }
 
-button:active {
-    background-color: #4A5568;
-}
+        button:active {
+            background-color: #4A5568;
+        }
 
-.tab-container {
-    margin-top: 20px;
-    padding: 20px;
-    padding-left: 120px;
-}
+        .tab-container {
+            margin-top: 20px;
+            padding: 20px;
+            padding-left: 120px;
+        }
 
-@media screen and (max-width: 768px) {
-    .toolbar {
-        position: static;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 5px;
-        margin-bottom: 20px;
-    }
+        @media screen and (max-width: 768px) {
+            .toolbar {
+                position: static;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 5px;
+                margin-bottom: 20px;
+            }
 
-    .tab-container {
-        margin-top: 20px;
-        padding-left: 20px;
-    }
-}
+            .tab-container {
+                margin-top: 20px;
+                padding-left: 20px;
+            }
+        }
 
-.string-line {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 20px;
-    margin-bottom: 10px;
-    width: 100%;
-    user-select: none;
-}
+        .string-line {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 20px;
+            margin-bottom: 10px;
+            width: 100%;
+            user-select: none;
+        }
 
-.string-line::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: black;
-}
+        .string-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: black;
+        }
 
-.editable {
-    width: 100%;
-    font-size: 35px;
-    font-weight: bold;
-    text-align: left;
-    outline: none;
-    cursor: text;
-    white-space: pre;
-    letter-spacing: 20px; /* Adjusted for better spacing */
-}
+        .editable {
+            width: 100%;
+            font-size: 35px;
+            font-weight: bold;
+            text-align: left;
+            outline: none;
+            cursor: text;
+            white-space: pre;
+            letter-spacing: 30px;
+        }
 
-.annotation {
-    width: 100%;
-    font-size: 15px;
-    font-weight: normal;
-    text-align: left;
-    outline: none;
-    cursor: text;
-    margin-bottom: 30px;
-    border: 1px dashed #aaa;
-    padding: 5px;
-}
+        .annotation {
+            width: 100%;
+            font-size: 15px;
+            font-weight: normal;
+            text-align: left;
+            outline: none;
+            cursor: text;
+            margin-bottom: 30px;
+            border: 1px dashed #aaa;
+            padding: 5px;
+        }
 
-.selected-note {
-    background-color: yellow;
-    border-radius: 3px;
-    padding: 2px;
-}
+        .selected-note {
+            background-color: yellow;
+            border-radius: 3px;
+            padding: 2px;
+        }
 
-.hide-border {
-    border: none !important;
-}
+        .hide-border {
+            border: none !important;
+        }
 
-.set-of-lines {
-    margin-bottom: 40px;
-}
+        .set-of-lines {
+            margin-bottom: 40px;
+        }
